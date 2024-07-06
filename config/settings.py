@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-hov6uk5$x=k(m#u%o2f-%@@@tz1n=0xdr&4!h&@!l)8)2^t+-z
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -72,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -87,6 +84,18 @@ DATABASES = {
     }
 }
 
+AWS_ACCESS_KEY_ID = 'DO00QFKKECEJ66ABV9GD'
+AWS_SECRET_ACCESS_KEY = 'DynSRfM4nLPmigZxiw07x2tw0nt9omPeSuhtGUUHrL8'
+AWS_STORAGE_BUCKET_NAME = 'otabekmoosecdn'
+AWS_S3_ENDPOINT_URL = 'https://portfolioscdn.blr1.digitaloceanspaces.com'
+AWS_S3_CUSTOM_DOMAIN = 'portfolioscdn.blr1.digitaloceanspaces.com/' + AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+    'ACL': 'public-read'
+}
+# Media files configuration
+DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -106,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -117,7 +125,6 @@ TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -132,13 +139,10 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -187,7 +191,7 @@ CKEDITOR_CONFIGS = {
         # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
         'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+            'uploadimage',  # the upload image feature
             # your extra plugins here
             'div',
             'autolink',
