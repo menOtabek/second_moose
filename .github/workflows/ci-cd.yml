@@ -45,10 +45,10 @@ jobs:
 
           ssh -tt root@$HOST << 'EOF'
             set -e
-            cd /root/CRM_BACKEND/fsp-crm-backend
+            cd /root/Otabek/second_moose
             git pull
-            sudo systemctl restart cr_m.service
-            sudo systemctl status cr_m.service
+            sudo systemctl restart otabek_moose.service
+            sudo systemctl status otabek_moose.service
           EOF
 
       - name: Send Success Message
