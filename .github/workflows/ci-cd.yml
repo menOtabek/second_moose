@@ -43,7 +43,7 @@ jobs:
           cp ssh_key ~/.ssh/id_rsa
           ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
-          ssh -tt root@$HOST << 'EOF'
+          ssh root@$HOST << 'EOF'
             set -e
             cd /root/Otabek/second_moose
             git pull
